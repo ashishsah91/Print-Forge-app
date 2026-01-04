@@ -2,6 +2,7 @@ import "./globals.css";
 import { Albert_Sans, Montserrat_Alternates } from "next/font/google"
 import PFLogoIcon from "@/public/printforge-logo-icon.svg"
 import PFLogo from "@/public/printforge-logo.svg"
+import Link from "next/link"
 
 
 const albertSans = Albert_Sans({
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className={`${albertSans.className} ${montserratAlternates.variable}`}>
         <header className="w-full bg-white">
           <nav className="flex justify-between px-6 py-4">
+            <Link href="/">
             <div className="relative">
               {/* Desktop Logo */}
               <img
@@ -40,9 +42,14 @@ export default function RootLayout({
                 className="w-[40px] h-auto block md:hidden"
               />
             </div>
+            </Link>
             <ul className="flex items-center gap-2.5">
-              <p>3D Models</p>
-              <p href="/about">About</p>
+              <li className="text-sm uppercase cursor-pointer">
+                <Link href="/3d-models">3D Models</Link>
+              </li>
+              <li className="text-sm uppercase cursor-pointer">
+                <Link href="/about">About</Link>
+              </li>
             </ul>
           </nav>
         </header>
